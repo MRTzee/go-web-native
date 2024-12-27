@@ -17,7 +17,10 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		"products": products,
 	}
 
-	temp, err := template.ParseFiles("views/product/index.html")
+	temp, err := template.ParseFiles(
+		"views/layouts/base.html",
+		"views/product/index.html",
+	)
 	if err != nil {
 		panic(err)
 	}
@@ -36,7 +39,10 @@ func Detail(w http.ResponseWriter, r *http.Request) {
 		"product": product,
 	}
 
-	temp, err := template.ParseFiles("views/product/detail.html")
+	temp, err := template.ParseFiles(
+		"views/layouts/base.html",
+		"views/product/detail.html",
+	)
 	if err != nil {
 		panic(err)
 	}
@@ -46,7 +52,10 @@ func Detail(w http.ResponseWriter, r *http.Request) {
 
 func Add(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
-		temp, err := template.ParseFiles("views/product/create.html")
+		temp, err := template.ParseFiles(
+			"views/layouts/base.html",
+			"views/product/create.html",
+		)
 		if err != nil {
 			panic(err)
 		}
@@ -88,7 +97,10 @@ func Add(w http.ResponseWriter, r *http.Request) {
 
 func Edit(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
-		temp, err := template.ParseFiles("views/product/edit.html")
+		temp, err := template.ParseFiles(
+			"views/layouts/base.html",
+			"views/product/edit.html",
+		)
 		if err != nil {
 			panic(err)
 		}
